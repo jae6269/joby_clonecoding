@@ -1,0 +1,751 @@
+* {
+  box-sizing: border-box;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.wrapper__head {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 100px;
+  padding-right: 100px;
+  z-index: 1;
+  background: linear-gradient(rgb(89, 87, 87), transparent);
+}
+
+.head__logo #logo {
+  width: 70px;
+  height: 70px;
+
+  fill: white;
+}
+
+.head__menu {
+  width: 800px;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.head__menu a {
+  font-size: 20px;
+  color: white;
+}
+
+.wrapper__body {
+  display: flex;
+  flex-direction: column;
+}
+/* 
+  홈화면의 첫번째화면
+  배경이미지는 3개의 이미지 슬라이드쇼
+  중앙에 watch 글씨 누르면 유튜브 링크로 이동
+   */
+
+.body__home1 {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.home1__center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* 위의 라인으로 글씨가 정확하게 가운데로 이동 */
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+}
+.home1__slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  overflow-y: hidden;
+  transition: opacity 1s ease;
+}
+.home1__slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: relative;
+}
+
+.home1__slide.active {
+  opacity: 1;
+}
+.home1__center span {
+  font-size: 100px;
+  font-weight: lighter;
+  color: white;
+}
+.home1__center a {
+  font-size: 30px;
+  color: white;
+  text-decoration: none;
+}
+
+/* 
+  홈화면의 두번째 화면
+  */
+.body__home2 {
+  width: 100vw;
+  height: 100vh;
+  background-image: url('../images/home2.png');
+  background-position: center bottom;
+  background-size: cover;
+}
+.body__home2__contents {
+  width: 100%;
+  height: 70%;
+  padding: 60px 300px 60px 300px;
+  display: flex;
+  flex-direction: column;
+}
+.home2__title {
+  margin: 0;
+}
+.home2__title h1 {
+  width: 100%;
+  font-size: 50px;
+  color: #393d47;
+  margin: 0;
+}
+.home2__text {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 70px;
+}
+.home2__text__left,
+.home2__text__right {
+  font-size: 28px;
+  color: #62687a;
+}
+.home2__icons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* 
+홈화면의 세번째 화면
+ */
+.body__home3 {
+  width: 100vw;
+  height: 100vh;
+}
+.home3__video__container {
+  width: 100%;
+  height: 100%;
+
+  /* 16:9 비율을 가진 영상의 경우 */
+}
+
+.home3__video__container iframe {
+  width: 100%;
+  height: 100%;
+}
+.home3__text__container {
+  position: absolute;
+  top: 268vh;
+  left: 35%;
+  z-index: 1;
+  width: 746px;
+}
+.home3__title h1 {
+  font-size: 60px;
+  font-weight: 200;
+  margin-bottom: 5px;
+}
+.home3__text p {
+  font-size: 30px;
+  font-weight: 150;
+  margin-top: 10px;
+}
+/* 
+홈화면의 네번째 화면
+ */
+.body__home4 {
+  width: 100vw;
+  height: 100vh;
+  background-image: url('../images/home4.png');
+  background-size: cover;
+}
+.home4__text__container {
+  margin-left: 70%;
+  width: 430px;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.home4__title h1 {
+  font-size: 42px;
+  font-weight: 200;
+  color: white;
+  margin-bottom: 0;
+}
+.home4__text1 {
+  margin-top: 0;
+}
+
+.home4__text1 p {
+  font-size: 23px;
+  font-weight: 150;
+  color: white;
+}
+.home4__text1 a {
+  font-size: 23px;
+  font-weight: 150;
+  color: blue;
+}
+
+.home4__text2 p {
+  font-size: 23px;
+  font-weight: 150;
+  color: white;
+  padding-left: 30px;
+  padding-right: 10px;
+  border-left: 2px solid rgb(56, 56, 210);
+}
+.home4__text3 span {
+  padding-left: 30px;
+  font-size: 23px;
+  font-weight: 150;
+  color: white;
+}
+
+/* 
+홈화면의 다섯번째 화면
+ */
+.body__home5 {
+  width: 100vw;
+  height: 100vh;
+  background-image: url('../images/home5.avif');
+  background-size: cover;
+}
+.home5__container {
+  width: 750px;
+  height: 100%;
+  margin-left: 30%;
+  margin-right: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 50px;
+}
+.home5__contents1 h2 {
+  font-size: 45px;
+  font-weight: 400;
+  color: #393d47;
+  margin-bottom: 15px;
+}
+
+.home5__contents2 p {
+  font-size: 27px;
+  font-weight: 200;
+  color: #62687a;
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 40px;
+}
+
+.home5__contents3 button {
+  width: 124px;
+  height: 33px;
+  background-color: #006ac6;
+  border: 0px solid;
+  border-radius: 9999px;
+  cursor: pointer;
+}
+.home5__contents3 span {
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+}
+/*홈화면의 여섯번째 화면 */
+.body__home6 {
+  width: 100%;
+  height: 110vh;
+  display: flex;
+  flex-direction: column;
+  padding-left: 80px;
+  padding-right: 80px;
+}
+.home6__header {
+  width: 100%;
+  height: 150px;
+  font-size: 28px;
+  font-weight: 5;
+  color: #62687a;
+}
+.home6__body {
+  width: 100%;
+  height: 100%;
+  margin-top: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.home6__news {
+  width: 100%;
+  height: 85%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.home6__news a {
+  width: 500px;
+  height: 750px;
+
+  cursor: pointer;
+  text-decoration: none;
+  margin-bottom: 0px;
+}
+.home6__news1,
+.home6__news2,
+.home6__news3 {
+  display: flex;
+  flex-direction: column;
+}
+.news1__img,
+.news2__img,
+.news3__img {
+  width: 100%;
+  height: 40%;
+  background-size: cover;
+}
+.news1__text,
+.news2__text,
+.news3__text {
+  width: 100%;
+  height: 60%;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.text1 {
+  font-size: 16px;
+  color: #006ac6;
+  font-weight: bold;
+}
+.text2 {
+  font-size: 22px;
+  color: #393d47;
+  font-weight: normal;
+}
+.text3 {
+  font-size: 18px;
+  color: #393d47;
+  font-weight: lighter;
+}
+
+.home6__button__container {
+  width: 160px;
+  height: 40px;
+}
+.home6__button {
+  width: 100%;
+  height: 100%;
+  background-color: #006ac6;
+  border: 0px solid;
+  border-radius: 9999px;
+  cursor: pointer;
+}
+.home6__button span {
+  font-size: 16px;
+  color: white;
+}
+/* ------------------홈 화면 끝--------------- */
+
+/* Our story (스토리화면) */
+
+.story1__video__container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+}
+.story1__video__container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.story1__center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+
+  /* 위의 라인으로 글씨가 정확하게 가운데로 이동 */
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.story1__title span {
+  font-size: 100px;
+  font-weight: lighter;
+  color: white;
+}
+.story1__watchLink {
+  display: flex;
+  flex-direction: row;
+}
+
+.story1__watchLink svg {
+  font-size: 20px;
+  color: #006ac6;
+}
+.story1__watchLink a {
+  font-size: 30px;
+  color: white;
+  text-decoration: none;
+}
+
+/* 스토리화면2 */
+.body__story2 {
+  width: 100%;
+  height: 120vh;
+  background-image: url(../images/story2.avif);
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+}
+.story2__textcontainer {
+  width: 750px;
+  height: 310px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 750px;
+}
+.story2__textcontainer h3 {
+  font-size: 40px;
+  color: white;
+}
+
+.story2__textcontainer p {
+  font-size: 25px;
+  color: white;
+  text-align: center;
+}
+
+/* 스토리화면 3 */
+.body__story3 {
+  width: 100%;
+  height: 100vh;
+  background-image: url(../images/story3.avif);
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.story3__story14__container {
+  width: 87%;
+  height: 100%;
+  margin-left: 13%;
+  padding-left: 70px;
+  padding-top: 34%;
+  padding-right: 9%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  border-left: 2px solid white;
+}
+
+.story3__story14__title {
+  font-size: 40px;
+  color: white;
+  font-weight: 100;
+}
+.story3__story14__text {
+  font-size: 24px;
+  color: white;
+}
+
+/* 스토리화면 4 */
+
+.body__story4 {
+  width: 100%;
+  height: 100vh;
+  background-image: url(../images/story4.avif);
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* 스토리화면 5 */
+.body__story5 {
+  width: 100%;
+  height: 100vh;
+  background-image: url(../images/story5.avif);
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 스토리화면 6 */
+.body__story6 {
+  width: 100%;
+  height: 100vh;
+  background-image: url(../images/story6.avif);
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 스토리화면 7 */
+.body__story7 {
+  width: 100%;
+  height: 100vh;
+  background-image: url(../images/story7.avif);
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 스토리화면 8 */
+.body__story8 {
+  width: 100%;
+  height: 100vh;
+  background-image: url(../images/story8.avif);
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 스토리화면 9 */
+.body__story9 {
+  width: 100%;
+  height: 100vh;
+  background-image: url(../images/story9.avif);
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 스토리화면 10 */
+.body__story10 {
+  width: 100%;
+  height: 100vh;
+  background-image: url(../images/story10.avif);
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 스토리화면 11 */
+.body__story11 {
+  width: 100%;
+  height: 100vh;
+  background-image: url(../images/story11.avif);
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 스토리화면 12 */
+.body__story12 {
+  width: 100%;
+  height: 100vh;
+  background-image: url(../images/story12.avif);
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 스토리화면 13 */
+.body__story13 {
+  width: 100%;
+  height: 100vh;
+  background-image: url(../images/story13.avif);
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 스토리화면 14 */
+.body__story14 {
+  width: 100%;
+  height: 120vh;
+  background-image: url(../images/story14.jpg);
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 200px;
+  box-shadow: inset 0px -150px 4000px rgb(26, 26, 26);
+}
+
+.story14__title {
+  font-size: 40px;
+  color: white;
+  font-weight: 100;
+  text-shadow: black 0px 0px 30px;
+}
+.story14__text {
+  font-size: 24px;
+  color: white;
+  text-shadow: black 0px 0px 30px;
+}
+
+/* 커리어화면 1 */
+
+.careers1__video__container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+}
+.careers1__video__container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.careers1__center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+
+  /* 위의 라인으로 글씨가 정확하게 가운데로 이동 */
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.careers1__title span {
+  font-size: 100px;
+  font-weight: lighter;
+  color: white;
+}
+.careers1__watchLink {
+  display: flex;
+  flex-direction: row;
+}
+
+.careers1__watchLink svg {
+  font-size: 20px;
+  color: #006ac6;
+}
+.careers1__watchLink a {
+  font-size: 30px;
+  color: white;
+  text-decoration: none;
+}
+.body__careers2,
+.body__careers3,
+.body__careers4 {
+  width: 100%;
+  height: 75vh;
+  display: flex;
+  flex-direction: row;
+}
+.careers__left,
+.careers__right {
+  width: 50%;
+  height: 100%;
+  overflow-y: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.careers__textcontainer {
+  width: 80%;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.careers__textcontainer h3 {
+  font-size: 40px;
+  font-weight: 400;
+  color: #393d47;
+}
+.careers__textcontainer p {
+  font-size: 23px;
+  font-weight: 350;
+  color: #393d47;
+}
+
+/* 커리어화면 5 */
+.body__careers5 {
+  width: 100%;
+  height: 100vh;
+  background-image: url(https://images.prismic.io/joby-site/caef4618-9991-4b3f-ab1d-6701e15e7d17_N542BJ+on+the+Tarmac.jpg?auto=compress,format&fit=crop&crop=faces&rect=null&q=80&blend-color=null&blend-mode=null&w=1400&h=963&dpr=1);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+}
+.body__careers5 span {
+  font-size: 50px;
+  font-weight: 300;
+  margin-bottom: 150px;
+}
+
+/* 뉴스룸 화면1 */
+.body__newsroom1 {
+  position: absolute;
+  width: 100%;
+  height: 120vh;
+  top: -20vh;
+  background-image: url(https://images.prismic.io/joby-site/d9a0c179-8186-46c2-b3ea-197492981f19_356.jpg?auto=compress,format&fit=crop&crop=faces&rect=null&q=80&blend-color=null&blend-mode=null&w=1400&h=931&dpr=1);
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.body__newsroom1 span {
+  margin-top: 800px;
+  font-size: 60px;
+  color: white;
+}
